@@ -1,6 +1,10 @@
 document.getElementById('search-btn').addEventListener('click', function () {
     const searchMeal = document.getElementById('search-meal').value;
-    loadMeals('cheese');
+    if (searchMeal === '') {
+        return alert('Enter something to search!!');
+    };
+    displayLoader(true);
+    loadMeals(searchMeal);
 })
 
 const loadMeals = async (searchText) => {
@@ -11,10 +15,19 @@ const loadMeals = async (searchText) => {
 }
 
 const displayMeals = meals => {
+    console.log(meals)
     const mealsContainer = document.getElementById('meals-container');
+    mealsContainer.innerHTML = '';
+
+    const noMealMessage = document.getElementById('no-meal-message');
+    if (meals === null) {
+        noMealMessage.classList.remove('hidden');
+        return;
+    } else {
+        noMealMessage.classList.add('hidden');
+    }
 
     meals.forEach(meal => {
-        console.log(meal)
         const mealDiv = document.createElement('div');
         mealDiv.classList.add('bg-white', 'rounded-lg', 'border', 'border-gray-200', 'shadow-md', 'flex', 'flex-col', 'justify-between');
         mealDiv.innerHTML = `
@@ -40,5 +53,16 @@ const displayMeals = meals => {
         const split = tags.split(',');
         const join = split.join(', ');
         return join;
+    }
+
+    displayLoader(false);
+}
+
+const displayLoader = isTrue => {
+    const loader = document.getElementById('loader');
+    if (isTrue) {
+        loader.classList.remove('hidden');
+    } else {
+        loader.classList.add('hidden');
     }
 }
