@@ -43,19 +43,19 @@ const displayMeals = meals => {
     try {
         meals.forEach(meal => {
             const mealDiv = document.createElement('div');
-            mealDiv.classList.add('bg-white', 'rounded-lg', 'border', 'border-gray-200', 'shadow-md', 'flex', 'flex-col', 'justify-between');
+            mealDiv.classList.add('bg-white', 'rounded-lg', 'border', 'border-gray-200', 'shadow-md', 'flex', 'flex-col', 'justify-between', 'text-center');
             mealDiv.innerHTML = `
             <div>
                 <img class="rounded-t-lg" src="${meal.strMealThumb}" alt="">
                 <div class="p-2 md:pt-5 md:px-5">
-                    <h5 class="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900">${meal.strMeal}</h5>
-                    <p class="md:mb-2 text-gray-700"><span class="font-medium">Category:</span> ${meal.strCategory ? meal.strCategory : 'No Category'}</p>
+                    <h5 class="mb-1 md:mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900 leading-tight">${meal.strMeal}</h5>
+                    <p class="md:mb-1 text-gray-700"><span class="font-medium">Category:</span> ${meal.strCategory ? meal.strCategory : 'No Category'}</p>
                     <p class="text-gray-700 hidden sm:block"><span class="font-medium">Tags:</span> ${showTags(meal.strTags)}</p>
                 </div>
             </div>
-            <div class="p-2 md:pb-5 md:px-5 flex gap-2 flex-wrap">
-                <label onclick="openModalMealDetails('${meal.idMeal}')" for="displayMealDetail" class="modal-button text-white bg-emerald-700 hover:bg-emerald-600 focus:outline-none font-medium rounded-lg text-sm px-3 py-2.5 text-center cursor-pointer">Instructions</label>
-                <label onclick="openModalMealDetails('${meal.idMeal}')" for="displayMealVideo" class="modal-button text-white bg-emerald-700 hover:bg-emerald-600 focus:outline-none font-medium rounded-lg text-sm px-3 py-2.5 text-center cursor-pointer">Watch</label>
+            <div class="p-2 md:pb-5 md:px-5 flex gap-1 sm:gap-2 flex-wrap justify-center">
+                <label onclick="openModalMealDetails('${meal.idMeal}')" for="displayMealDetail" class="modal-button text-white bg-emerald-700 hover:bg-emerald-600 focus:outline-none font-medium rounded-lg text-sm px-3 py-1.5 md:py-2.5 text-center cursor-pointer">Instructions</label>
+                <label onclick="openModalMealDetails('${meal.idMeal}')" for="displayMealVideo" class="modal-button text-white bg-emerald-700 hover:bg-emerald-600 focus:outline-none font-medium rounded-lg text-sm px-3 py-1.5 md:py-2.5 text-center cursor-pointer">Watch</label>
             </div>
             `
             mealsContainer.appendChild(mealDiv);
@@ -100,7 +100,7 @@ const displayModalMealVideo = meal => {
     `
     // Stop video after closing modal
     const mealVideo = document.querySelectorAll('.meal-video');
-    const mealVideoClose = document.getElementById('meal-video-label')
+    const mealVideoClose = document.getElementById('meal-video-label');
 
     for (video of mealVideo) {
         console.log(video)
