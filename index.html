@@ -32,13 +32,13 @@
                 <input type="search" id="search-meal"
                     class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none"
                     placeholder="Search Meal..." required="">
-                <button id="search-btn" type="submit"
+                <button id="search-btn"
                     class="text-white absolute right-2.5 bottom-2.5 bg-emerald-700 hover:bg-emerald-600 focus:outline-none font-medium rounded-lg text-sm px-4 py-2">Search</button>
             </div>
         </div>
     </header>
 
-    <main class="lg:w-4/5 px-2 lg:px-0 mx-auto my-12 py-2 md:py-4">
+    <main class="lg:w-4/5 px-2 lg:px-0 mx-auto py-2 md:py-12 min-h-screen">
         <section>
             <!-- Meals container -->
             <div id="meals-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-6">
@@ -65,16 +65,28 @@
                 <p class="text-2xl font-medium text-red-700 text-center">No Meals found, Search again!!</p>
             </div>
 
-            <!-- Modal -->
+            <!-- Instructions modal -->
             <input type="checkbox" id="displayMealDetail" class="modal-toggle" />
-            <label for="displayMealDetail" class="modal cursor-pointer">
+            <label for="displayMealDetail" class="modal">
                 <label id="modal-container" class="modal-box relative" for="">
+
                 </label>
             </label>
 
-        </section>
+            <!-- Video modal -->
+            <input type="checkbox" id="displayMealVideo" class="modal-toggle" />
+            <label id="meal-video-label" for="displayMealVideo" class="modal cursor-pointer">
+                <label id="modal-video-container" class="modal-box max-w-none relative w-4/5" for="">
 
+                </label>
+            </label>
+        </section>
     </main>
+
+    <footer class="text-center pt-4 pb-8">
+        <p>API from <a href="https://www.themealdb.com/api.php">Free Meal API</a></p>
+        <p>Copyright © 2022 Golam Hasnain Soyad</p>
+    </footer>
 
     <script src="app.js"></script>
 </body>
